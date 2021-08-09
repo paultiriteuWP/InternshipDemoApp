@@ -8,9 +8,13 @@
 import Foundation
 
 class DetailsViewModel {
-    let imageURL: URL
+    private let photo: PhotoModel
     
-    init(url: URL) {
-        self.imageURL = url
+    init(photo: PhotoModel) {
+        self.photo = photo
+    }
+    
+    func getImageURL() -> URL? {
+        return URL(string: photo.url ?? "")
     }
 }

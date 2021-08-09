@@ -6,18 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PhotoTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
+    func configure(thumbnailUrl: String, title: String) {
+        titleLabel.text = title
+        guard let imageURL = URL(string: thumbnailUrl) else { return }
+        photoImageView.kf.setImage(with: imageURL)
+    }
 }
